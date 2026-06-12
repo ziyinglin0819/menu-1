@@ -1,0 +1,314 @@
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 讓邊框和內邊距不影響元素的總寬高，排邊更精準 */
+}
+
+body {
+    /* 確保 body 也是完全貼齊邊緣 */
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 切實置中 */
+    padding: 20px 10%;
+    background-color: #C73939; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* Logo 外層容器 */
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo 連結樣式：確保它是純白、沒底線 */
+.logo img {
+    height: auto;      /* 讓高度隨寬度等比例縮放 */
+    max-height: 40px;  /* 限制最大高度 */
+    display: block;    
+    transition: opacity 0.2s;
+}
+
+.logo img:first-child {
+    transform: translateY(-2px); /* 透過位移把圖標視覺重心往上提 2 像素 */
+    margin-right: 12px;          /* 幫圖標和標準字之間加上舒服的間距 */
+}
+
+.logo img:last-child {
+    width: auto;                 /* 避免標準字被強制拉伸到 100% 寬 */
+}
+
+/* 滑鼠移到 Logo 上時稍微變透明，提示可以點擊 */
+.logo a:hover {
+    opacity: 0.85;
+}
+
+/* 中間導覽選單外層清單 */
+.nav-links {
+    display: flex;
+    list-style: none;/* 移除點點符號 */
+  align-items:center;justify-content:center;
+  margin:0px;
+  padding:0px;
+}
+
+/* 讓選單裡的項目保持間距 */
+.nav-links li {
+    margin: 0 20px;
+}
+
+/* 選單文字樣式：白色、加粗、預設稍微帶一點透明 */
+.nav-links a {
+    display: block;
+    padding: 10px 0;    /* ✨ 關鍵：給文字上下加上對稱的空間，讓 Flex 更精準地抓到中線 */
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;         
+    font-weight: 600;
+    transition: opacity 0.2s, text-decoration 0.2s;
+}
+
+/* 💡 關鍵修正：當滑鼠移上去（Hover）時，亮度全開並顯示底線 */
+.nav-links a:hover {
+    opacity: 0.85;             
+    text-decoration: underline; /* 滑鼠移上去顯現底線 */
+}
+
+
+/* 中間導覽選單外層清單 */
+.nav-links {
+    display: flex;
+    list-style: none;/* 移除點點符號 */
+  align-items:center;justify-content:center;
+  margin:0px;
+  padding:0px;
+}
+
+/* 讓選單裡的項目保持間距 */
+.nav-links li {
+    margin: 0 20px;
+}
+
+/* 選單文字樣式：白色、加粗、預設稍微帶一點透明 */
+.nav-links a {
+    display: block;
+    padding: 10px 0;    /* ✨ 關鍵：給文字上下加上對稱的空間，讓 Flex 更精準地抓到中線 */
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;         
+    font-weight: 600;
+    transition: opacity 0.2s, text-decoration 0.2s;
+}
+
+/* 💡 關鍵修正：當滑鼠移上去（Hover）時，亮度全開並顯示底線 */
+.nav-links a:hover {
+    opacity: 0.85;             
+    text-decoration: underline; /* 滑鼠移上去顯現底線 */
+}
+
+
+
+.search-section {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+  margin-top:30px;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #a04020;
+    border-radius: 50px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* 確保按鈕本身有寬度，且內容能置中 */
+.search-bar button {
+    background: #a04020 !important; /* 強制執行你的主色調 */
+    border: none;
+    width: 60px;       /* 給按鈕一個固定的寬度 */
+    height: auto;      /* 讓高度撐滿搜尋欄 */
+    cursor: pointer;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0;        /* 清除內距，避免把 SVG 擠扁 */
+}
+
+/* 確保 SVG 顯示出來並變成白色 */
+.search-icon {
+    width: 24px !important;    /* 放大鏡的寬度 */
+    height: 24px !important;   /* 放大鏡的高度 */
+    fill: #ffffff !important;  /* 絕對填滿純白色 */
+    display: block;
+}
+/* 料理選單樣式 */
+.section-title {
+    margin-bottom: 30px;margin-left: 30px;
+    color: #a04020;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;margin:30px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.recipe-img {
+    height: 180px;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #999;
+}
+
+.recipe-img img{
+    height: 180px;width:100%;
+    object-fit:cover;
+}
+
+.recipe-info {
+    padding: 20px;
+    text-align: left;
+  background-color:white;
+}
+
+.recipe-info h3 {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.recipe-info p {
+    font-size: 14px;
+    color: #777;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    gap: 10px;
+}
+
+.page-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    color: #a04020;
+    background: #fff;
+    border: 1px solid #a04020;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.page-btn:hover, .page-btn.active {
+    background: #a04020;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(160, 64, 32, 0.2);
+}
+
+.page-btn.next {
+    padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+    /* 1. 修正選單偏右問題，並保持 Logo 與文字垂直置中 */
+    .navbar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 24px 20px !important; /* 歸零百分比，改用固定小邊距，防止推歪 */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Logo 專屬調整：置中且不貼頂，維持舒適比例 */
+    .logo {
+        margin-bottom: 20px !important; /* 幫 Logo 和下方選單拉開舒適的距離 */
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+    
+    .logo a {
+        justify-content: center !important; /* 確保圖片在超連結內水平居中 */
+    }
+
+    /* 3. 選單區塊滿版置中 */
+    .nav-links {
+        display: flex !important;
+        flex-direction: column !important; /* 改為直列排列 */
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 4. 清除網頁版殘留的左右 margin */
+    .nav-links li {
+        margin: 8px 0 !important; /* 清除左右 margin，改用上下 margin 撐開間距 */
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .nav-links a {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 6px 0 !important;
+    }
+
+    /* 5. 泡菜內容區手機版優化 */
+    .brand-title { 
+        font-size: 2.2rem !important; 
+    }
+    
+    .features-section { 
+        gap: 16px !important; 
+        padding: 20px 16px !important;
+    }
+    
+    .feature-item { 
+        min-width: 120px !important; 
+    }
+    
+    .product-grid {
+        gap: 24px !important; /* 手機版卡片間距縮小，更緊湊好看 */
+    }
+}
